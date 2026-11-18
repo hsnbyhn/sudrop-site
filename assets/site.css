@@ -1,0 +1,50 @@
+/* Sudrop site - tokens from unity/Assets/Sudrop/DigitDrop/View/Theme.cs
+   light = "Porcelain & Ink", dark = "Frost dark"; font Outfit (SIL OFL 1.1, fonts/OFL.txt) */
+@font-face { font-family: "Outfit"; src: url("fonts/Outfit-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fonts/Outfit-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fonts/Outfit-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+:root {
+  color-scheme: light dark;
+  --bg: #E8EDF2; --bg-top: #F3F6F9; --surface: #F8FAFC; --text: #1C2033; --muted: #505A72;
+  --accent: #1D6449; --primary: #2B3150; --primary-text: #F7F1E4;
+  --tile: #2B3150; --tile-digit: #F7F1E4; --cell: #D8E0E9; --fall: #1F6750; --fall-digit: #F7F1E4; --gold: #7A4F15; --gold-digit: #FFE7A3;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F121F; --bg-top: #0F121F; --surface: #191C2E; --text: #F2EAD9; --muted: #ABB0CD;
+    --accent: #73C9A1; --primary: #F2EAD9; --primary-text: #14161E;
+    --tile: #F2EAD9; --tile-digit: #14161E; --cell: #20243A; --fall: #73C9A1; --fall-digit: #0B0D13; --gold: #F2D67D; --gold-digit: #14161E;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; color: var(--text); background: linear-gradient(180deg, var(--bg-top), var(--bg) 320px) var(--bg);
+  font: 18px/1.55 "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+main { max-width: 680px; margin: 0 auto; padding: 32px 22px 56px; }
+header.site { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+header.site img { width: 56px; height: 56px; border-radius: 13px; }
+header.site a { color: var(--text); text-decoration: none; font-weight: 700; font-size: 24px; }
+h1 { font-size: 34px; line-height: 1.15; margin: 0 0 10px; font-weight: 700; }
+h2 { font-size: 22px; margin: 34px 0 8px; font-weight: 600; }
+h3 { font-size: 19px; margin: 22px 0 4px; font-weight: 600; }
+p, ul { margin: 0 0 14px; }
+ul { padding-left: 22px; }
+li { margin-bottom: 6px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+.lead { font-size: 21px; color: var(--muted); }
+.card { background: var(--surface); border-radius: 22px; padding: 18px 22px; margin: 18px 0; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+.meta { color: var(--muted); font-size: 16px; }
+/* a row counting 1 to 9, with the last digit falling in: the game's one rule */
+.row { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; margin: 30px 0 26px; max-width: 420px; }
+.row span { aspect-ratio: 1; border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  background: var(--tile); color: var(--tile-digit); font-weight: 700; font-size: clamp(15px, 4.4vw, 22px); }
+.row span.fall { background: var(--fall); color: var(--fall-digit); transform: translateY(-8px); }
+.row span.gold { background: var(--gold); color: var(--gold-digit); }
+nav.links { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+nav.links a { display: inline-block; background: var(--primary); color: var(--primary-text); text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 999px; }
+footer { margin-top: 44px; color: var(--muted); font-size: 15px; }
+footer a { color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { nav.links a { transition: opacity .2s ease; } nav.links a:hover { opacity: .85; } }
